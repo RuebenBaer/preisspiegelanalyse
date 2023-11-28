@@ -7,12 +7,22 @@
 #include "lvSruct.h"
 
 void einlesen(std::ifstream &file, std::vector<Position*> &LV);
+void auslesen(std::vector<Position*> &LV);
 void ErsteZeileLesen(std::string, std::vector<Bieter*>&);
+
+void KommaGegenPunkt(std::string &str)
+{
+	for(long long unsigned int i = 0; i < str.length(); i++)
+	{
+		if(str[i] == ',')str[i] = '.';
+	}
+	return;
+}
 
 void printHelp()
 {
-	std::cout<<"Erforderliche Reihenfolge der Einträge:\t";
-	std::cout<<"PositionNr.\tKurztext\tLangtext\tmitGP\tMenge\tEinheit\tSchwerpunktpos.\tBieter 1\tBieter 2;Bieter 3; usw.\n";
+	std::cout<<"Erforderliche Reihenfolge der Einträge:\n";
+	std::cout<<"PositionNr. | Kurztext | Langtext | mitGP | Menge | Einheit | Schwerpunktpos. | Bieter 1 | Bieter 2 | Bieter 3 | usw.\n\n";
 	std::cout<<"In der ersten Zeile der Datei sind die Namen der Bieter zu hinterlegen\n\n";
 	return;
 }
@@ -46,85 +56,33 @@ int main(int argc, char** argv)
 	std::streampos fileAnfang = file.tellg();
 	
 	einlesen(file, LV);
+	auslesen(LV);
 	
 	file.close();
 	system("PAUSE");
 	return EXIT_SUCCESS;
 }
 
-void einlesen(std::ifstream &file, std::vector<Position*> &LV)
+void Lese_posNr(std::string str, Position &pos)
 {
-	std::streampos fileAnfang = file.tellg();
-	std::string zeile;
-	
-	std::vector<Bieter*> lstBieter;
-	std::getline(file, zeile);
-	ErsteZeileLesen(zeile, lstBieter);
-
-	std::cout<<"erste Zeile eingelesen\n"<<lstBieter.size()<<" Bieter eingelesen:\n";
-	for(long long unsigned int i = 0; i < lstBieter.size(); i++)
-	{
-		std::cout<<lstBieter[i]->name<<"\n";
-	}
-	
-	Position tempPos;
-	while(!file.eof())
-	{
-		std::getline(file, zeile);
-		std::cout<<"Verarbeite Zeile: "<<zeile<<"\n";
-	};
-	return;
-}
-
-void KommaGegenPunkt(std::string str)
-{
-	for(long long unsigned int i = 0; i < str.length(); i++)
-	{
-		if(str[i] == ',')str[i] = '.';
-	}
-	return;
-}
-
-void Lese_posNr(std::string str, Position &pos, int &i)
-{
-	std::cout<<"Lese_posNr\n";
 	pos.posNr = str;
 	return;
 }
 
-void Lese_kurzText(std::string str, Position &pos, int &i)
+void Lese_kurzText(std::string str, Position &pos)
 {
-	std::cout<<"Lese_kurzText\n";
 	pos.kurzText = str;
 	return;
 }
 
-void Lese_langText(std::string str, Position &pos, int &i)
+void Lese_langText(std::string str, Position &pos)
 {
-	std::cout<<"Lese_langText\n";
 	pos.langText = str;
 	return;
 }
 
-
-void Lese_menge(std::string str, Position &pos, int &i)
+void Lese_evtlPos(std::string str, Position &pos)
 {
-	std::cout<<"Lese_menge\n";
-	KommaGegenPunkt(str);
-	pos.menge = atof(str.c_str());
-	return;
-}
-
-void Lese_einheit(std::string str, Position &pos, int &i)
-{
-	std::cout<<"Lese_einheit\n";
-	pos.einheit = str;
-	return;
-}
-
-void Lese_evtlPos(std::string str, Position &pos, int &i)
-{
-	std::cout<<"Lese_evtlPos\n";
 	if(str.empty())
 		pos.evtlPos = false;
 	else
@@ -132,9 +90,21 @@ void Lese_evtlPos(std::string str, Position &pos, int &i)
 	return;
 }
 
-void Lese_schwerPunkt(std::string str, Position &pos, int &i)
+void Lese_menge(std::string str, Position &pos)
 {
-	std::cout<<"Lese_schwerPunkt\n";
+	KommaGegenPunkt(str);
+	pos.menge = atof(str.c_str());
+	return;
+}
+
+void Lese_einheit(std::string str, Position &pos)
+{
+	pos.einheit = str;
+	return;
+}
+
+void Lese_schwerPunkt(std::string str, Position &pos)
+{
 	if(str.empty())
 		pos.schwerPunkt = false;
 	else
@@ -142,11 +112,11 @@ void Lese_schwerPunkt(std::string str, Position &pos, int &i)
 	return;
 }
 
-void Lese_Bieter(std::string str, Position &pos, int &i)
+void Lese_Bieter(std::string str, Position &pos, long long unsigned int &i)
 {
-	std::cout<<"Lese_Bieter\n";
 	KommaGegenPunkt(str);
-	pos.lstAngebote[i++].EP = atof(str.c_str());
+	pos.lstAngebote[i].EP = atof(str.c_str());
+	pos.lstAngebote[i++].bieterNr = i;
 	return;
 }
 
@@ -164,13 +134,98 @@ void ErsteZeileLesen(std::string zeile, std::vector<Bieter*> &bieter)
 		}
 		if(stelle > 6)
 		{
-			std::cout<<"Verarbeite: "<<zeile.substr(pos, neuPos-pos)<<"\n";
 			Bieter* neuBieter = new Bieter;
 			neuBieter->name = zeile.substr(pos, neuPos-pos);
 			bieter.push_back(neuBieter);
 		}
 		stelle++;
 		pos = neuPos + 1;
+	}
+	return;
+}
+
+void einlesen(std::ifstream &file, std::vector<Position*> &LV)
+{
+	std::streampos fileAnfang = file.tellg();
+	std::string zeile;
+	
+	std::vector<Bieter*> lstBieter;
+	std::getline(file, zeile);
+	ErsteZeileLesen(zeile, lstBieter);
+
+	std::cout<<"erste Zeile eingelesen\n"<<lstBieter.size()<<" Bieter eingelesen:\n";
+	for(long long unsigned int i = 0; i < lstBieter.size(); i++)
+	{
+		std::cout<<"Bieter "<<i<<": "<<lstBieter[i]->name<<"\n";
+	}
+
+	while(!file.eof())
+	{
+		std::getline(file, zeile);
+
+		int aktFkt = 0;
+		long long unsigned int bieterNr = 0;
+		size_t pos = 0;
+		size_t neuPos = 0;
+		
+		Position* position = new Position();
+		position->lstAngebote = new Angebot[lstBieter.size()];
+		LV.push_back(position);
+		
+		do{
+			neuPos = zeile.find(";", pos);
+			if(neuPos == std::string::npos)
+			{
+				break;
+			}
+			std::string str = zeile.substr(pos, neuPos-pos);
+			switch (aktFkt){
+				case 0:
+					Lese_posNr(str, *position);
+					aktFkt++;
+					break;
+				case 1:
+					Lese_kurzText(str, *position);
+					aktFkt++;
+					break;
+				case 2:
+					Lese_langText(str, *position);
+					aktFkt++;
+					break;
+				case 3:
+					Lese_evtlPos(str, *position);
+					aktFkt++;
+					break;
+				case 4:
+					Lese_menge(str, *position);
+					aktFkt++;
+					break;
+				case 5:
+					Lese_einheit(str, *position);
+					aktFkt++;
+					break;
+				case 6:
+					Lese_schwerPunkt(str, *position);
+					aktFkt++;
+					break;
+				case 7:
+					Lese_Bieter(str, *position, bieterNr);
+					bieterNr++;
+					break;
+			}
+			pos = neuPos + 1;
+		}while(bieterNr < lstBieter.size());
+	};
+	return;
+}
+
+void auslesen(std::vector<Position*> &LV)
+{
+	std::cout<<"Entered Auslesen\n";
+	for(long long unsigned int i = 0; i < LV.size(); i++)
+	{
+		std::cout<<LV[i]->posNr<<" .:|:. "<<LV[i]->kurzText<<" .:|:. "<<LV[i]->langText<<" .:|:. "<<LV[i]->evtlPos<<" .:|:. ";
+		std::cout<<LV[i]->menge<<" .:|:. "<<LV[i]->einheit<<" .:|:. "<<LV[i]->schwerPunkt<<"\n";
 	}
 	return;
 }

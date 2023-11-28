@@ -9,7 +9,8 @@ typedef struct{
 }Bieter;
 
 typedef struct{
-	Bieter *bieter;
+	int bieterNr;
+	std::string analyse;
 	float EP;
 }Angebot;
 
