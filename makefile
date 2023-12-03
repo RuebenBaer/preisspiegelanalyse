@@ -13,7 +13,8 @@ SRCDIR = src
 BINDIR = bin
 BIN = $(BINDIR)\psa.exe
 OBJ = \
-	$(OBJDIR)\main.o
+	$(OBJDIR)\main.o \
+	$(OBJDIR)\stack.o
 
 .PHONEY: clean all
 
@@ -22,6 +23,10 @@ all: $(OBJ)
 	$(CXX) $(CPPFLAGS) $(DEFS) -o $(BIN) $(OBJ) -s $(LIBS)
 
 $(OBJDIR)\main.o: $(SRCDIR)\main.cpp
+	if not exist $(OBJDIR) mkdir $(OBJDIR)
+	$(CXX) $(CPPFLAGS) $(DEFS) $(INCLUDES) -c $< -o $@
+
+$(OBJDIR)\stack.o: $(SRCDIR)\stack.cpp
 	if not exist $(OBJDIR) mkdir $(OBJDIR)
 	$(CXX) $(CPPFLAGS) $(DEFS) $(INCLUDES) -c $< -o $@
 

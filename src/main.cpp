@@ -5,9 +5,11 @@
 #include <vector>
 #include <stdlib.h>
 #include "lvSruct.h"
+#include "stack.h"
 
-void einlesen(std::ifstream &file, std::vector<Position*> &LV);
+void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> lstBieter);
 void auslesen(std::vector<Position*> &LV);
+void Aufraeumen(std::vector<Position*> LV, std::vector<Bieter*> lstBieter);
 void ErsteZeileLesen(std::string, std::vector<Bieter*>&);
 
 void KommaGegenPunkt(std::string &str)
@@ -42,6 +44,15 @@ int main(int argc, char** argv)
 		return EXIT_SUCCESS;
 	}
 	
+	double a[] = {1.9, -3.2, 9.03, 88.4, -1.0, -1.0, -1.0, -1.0, 17.3};
+	stack stapel;
+	for(int i = 0; i < 9; i++)
+	{
+		stapel.push(a[i]);
+	}
+	std::cout<<"Median: "<<stapel.median()<<"\n";
+	system("PAUSE");
+	
 	std::ifstream file;
 	file.open(argv[1], std::ios::in);
 	if(!file.good())
@@ -50,15 +61,17 @@ int main(int argc, char** argv)
 		system("PAUSE");		
 		return EXIT_FAILURE;
 	}
-	
+
 	std::vector<Position*> LV;
+	std::vector<Bieter*> lstBieter;
 	
 	std::streampos fileAnfang = file.tellg();
 	
-	einlesen(file, LV);
+	einlesen(file, LV, lstBieter);
 	auslesen(LV);
 	
 	file.close();
+	Aufraeumen(LV, lstBieter);
 	system("PAUSE");
 	return EXIT_SUCCESS;
 }
@@ -116,7 +129,8 @@ void Lese_Bieter(std::string str, Position &pos, long long unsigned int &i)
 {
 	KommaGegenPunkt(str);
 	pos.lstAngebote[i].EP = atof(str.c_str());
-	pos.lstAngebote[i++].bieterNr = i;
+	pos.lstAngebote[i].bieterNr = i;
+	i++;
 	return;
 }
 
@@ -144,12 +158,11 @@ void ErsteZeileLesen(std::string zeile, std::vector<Bieter*> &bieter)
 	return;
 }
 
-void einlesen(std::ifstream &file, std::vector<Position*> &LV)
+void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> lstBieter)
 {
 	std::streampos fileAnfang = file.tellg();
 	std::string zeile;
-	
-	std::vector<Bieter*> lstBieter;
+
 	std::getline(file, zeile);
 	ErsteZeileLesen(zeile, lstBieter);
 
@@ -219,13 +232,27 @@ void einlesen(std::ifstream &file, std::vector<Position*> &LV)
 	return;
 }
 
+void Aufraeumen(std::vector<Position*> LV, std::vector<Bieter*> lstBieter)
+{
+	for(std::vector<Bieter*>::iterator it = lstBieter.begin(); it != lstBieter.end(); it++)
+	{
+		delete *it;
+	}
+	for(std::vector<Position*>::iterator it = LV.begin(); it != LV.end(); it++)
+	{
+		delete *it;
+	}
+	std::cout<<"Aufraeumen beendet\n";
+	return;
+}
+
 void auslesen(std::vector<Position*> &LV)
 {
 	std::cout<<"Entered Auslesen\n";
 	for(long long unsigned int i = 0; i < LV.size(); i++)
 	{
-		std::cout<<LV[i]->posNr<<" .:|:. "<<LV[i]->kurzText<<" .:|:. "<<LV[i]->langText<<" .:|:. "<<LV[i]->evtlPos<<" .:|:. ";
-		std::cout<<LV[i]->menge<<" .:|:. "<<LV[i]->einheit<<" .:|:. "<<LV[i]->schwerPunkt<<"\n";
+		std::cout<<LV[i]->posNr<<" | "<<LV[i]->kurzText<<" | "<<LV[i]->langText<<" | "<<LV[i]->evtlPos<<" | ";
+		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->schwerPunkt<<"\n";
 	}
 	return;
 }
