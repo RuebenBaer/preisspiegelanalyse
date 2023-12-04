@@ -133,10 +133,6 @@ double stack::median()
 			else
 				kleiner.push(this->pop());
 		}
-		std::cout<<"Groesser["<<groesser.size()<<"]: ";
-		groesser.print();
-		std::cout<<"Kleiner["<<kleiner.size()<<"]: ";
-		kleiner.print();
 		if(groesser.size() < kleiner.size())
 		{
 			groesser.push(mitte);
@@ -144,6 +140,7 @@ double stack::median()
 		{
 			kleiner.push(mitte);
 		}
+		
 		if(groesser.size() == kleiner.size())
 		{
 			retVal = ((groesser.min() + kleiner.max())/2);
@@ -156,7 +153,8 @@ double stack::median()
 		{
 			retVal = (kleiner.max());
 			break;
-		}else if(groesser.size() < kleiner.size())
+		}
+		if(groesser.size() < kleiner.size())
 		{
 			groesser.leeren();
 			while(!std::isnan(kleiner.peek()))
@@ -171,6 +169,7 @@ double stack::median()
 				this->push(groesser.pop());
 			}
 		}
+		mitte = this->pop();
 	}while(1);
 
 	return retVal;

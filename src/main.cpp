@@ -44,15 +44,6 @@ int main(int argc, char** argv)
 		return EXIT_SUCCESS;
 	}
 	
-	double a[] = {1.9, -3.2, 9.03, 88.4, -1.0, -1.0, -1.0, -1.0, 17.3};
-	stack stapel;
-	for(int i = 0; i < 9; i++)
-	{
-		stapel.push(a[i]);
-	}
-	std::cout<<"Median: "<<stapel.median()<<"\n";
-	system("PAUSE");
-	
 	std::ifstream file;
 	file.open(argv[1], std::ios::in);
 	if(!file.good())
@@ -130,7 +121,6 @@ void Lese_Bieter(std::string str, Position &pos, long long unsigned int &i)
 	KommaGegenPunkt(str);
 	pos.lstAngebote[i].EP = atof(str.c_str());
 	pos.lstAngebote[i].bieterNr = i;
-	i++;
 	return;
 }
 
@@ -183,6 +173,7 @@ void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Biete
 		
 		Position* position = new Position();
 		position->lstAngebote = new Angebot[lstBieter.size()];
+		position->anzAngebote = lstBieter.size();
 		LV.push_back(position);
 		
 		do{
@@ -252,7 +243,12 @@ void auslesen(std::vector<Position*> &LV)
 	for(long long unsigned int i = 0; i < LV.size(); i++)
 	{
 		std::cout<<LV[i]->posNr<<" | "<<LV[i]->kurzText<<" | "<<LV[i]->langText<<" | "<<LV[i]->evtlPos<<" | ";
-		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->schwerPunkt<<"\n";
+		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->schwerPunkt;
+		for(int j = 0; j < LV[i]->anzAngebote; j++)
+		{
+			std::cout<<" | "<<LV[i]->lstAngebote[j].EP;
+		}
+		std::cout<<"\n";
 	}
 	return;
 }

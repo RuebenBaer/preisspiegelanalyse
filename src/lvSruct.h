@@ -22,6 +22,7 @@ typedef struct{
 	std::string einheit;
 	bool evtlPos, schwerPunkt;
 	Angebot *lstAngebote;
+	int anzAngebote;
 }Position;
 
 #endif //__LV_H_
