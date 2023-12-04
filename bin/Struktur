@@ -1,3 +1,3 @@
-posNr;kurzText;langText;mitGP;menge;einheit;schwerPunkt;Haase;Problem;Affe;
-01.0010;kurztext 1;Langtext 1;;15,56879;m2;*;4,95;3,79;18,00;
-02.0150;kurztext 2;Langtext 2;E;6,9;Stk;;16;9,02;0,02;
+posNr;kurzText;langText;mitGP;menge;einheit;risiko;Haase;Problem;Affe;
+01.0010;kurztext 1;Langtext 1;;15,56879;m2;2;4,95;3,79;18,00;
+02.0150;kurztext 2;Langtext 2;E;6,9;Stk;6;16;9,02;0,02;

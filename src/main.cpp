@@ -7,10 +7,11 @@
 #include "lvSruct.h"
 #include "stack.h"
 
-void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> lstBieter);
-void auslesen(std::vector<Position*> &LV);
-void Aufraeumen(std::vector<Position*> LV, std::vector<Bieter*> lstBieter);
+void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
 void ErsteZeileLesen(std::string, std::vector<Bieter*>&);
+void auslesen(std::vector<Position*> &LV);
+void Aufraeumen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
+void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
 
 void KommaGegenPunkt(std::string &str)
 {
@@ -24,7 +25,7 @@ void KommaGegenPunkt(std::string &str)
 void printHelp()
 {
 	std::cout<<"Erforderliche Reihenfolge der Einträge:\n";
-	std::cout<<"PositionNr. | Kurztext | Langtext | mitGP | Menge | Einheit | Schwerpunktpos. | Bieter 1 | Bieter 2 | Bieter 3 | usw.\n\n";
+	std::cout<<"PositionNr. | Kurztext | Langtext | mitGP | Menge | Einheit | Kostenrisiko | Bieter 1 | Bieter 2 | Bieter 3 | usw.\n\n";
 	std::cout<<"In der ersten Zeile der Datei sind die Namen der Bieter zu hinterlegen\n\n";
 	return;
 }
@@ -60,6 +61,8 @@ int main(int argc, char** argv)
 	
 	einlesen(file, LV, lstBieter);
 	auslesen(LV);
+	
+	LvAnalyse(LV, lstBieter);
 	
 	file.close();
 	Aufraeumen(LV, lstBieter);
@@ -107,12 +110,12 @@ void Lese_einheit(std::string str, Position &pos)
 	return;
 }
 
-void Lese_schwerPunkt(std::string str, Position &pos)
+void Lese_risiko(std::string str, Position &pos)
 {
 	if(str.empty())
-		pos.schwerPunkt = false;
+		pos.risiko = 0;
 	else
-		pos.schwerPunkt = true;
+		pos.risiko = atoi(str.c_str())%3;
 	return;
 }
 
@@ -148,7 +151,7 @@ void ErsteZeileLesen(std::string zeile, std::vector<Bieter*> &bieter)
 	return;
 }
 
-void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> lstBieter)
+void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 {
 	std::streampos fileAnfang = file.tellg();
 	std::string zeile;
@@ -209,7 +212,7 @@ void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Biete
 					aktFkt++;
 					break;
 				case 6:
-					Lese_schwerPunkt(str, *position);
+					Lese_risiko(str, *position);
 					aktFkt++;
 					break;
 				case 7:
@@ -223,7 +226,7 @@ void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Biete
 	return;
 }
 
-void Aufraeumen(std::vector<Position*> LV, std::vector<Bieter*> lstBieter)
+void Aufraeumen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 {
 	for(std::vector<Bieter*>::iterator it = lstBieter.begin(); it != lstBieter.end(); it++)
 	{
@@ -243,12 +246,39 @@ void auslesen(std::vector<Position*> &LV)
 	for(long long unsigned int i = 0; i < LV.size(); i++)
 	{
 		std::cout<<LV[i]->posNr<<" | "<<LV[i]->kurzText<<" | "<<LV[i]->langText<<" | "<<LV[i]->evtlPos<<" | ";
-		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->schwerPunkt;
+		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->risiko;
 		for(int j = 0; j < LV[i]->anzAngebote; j++)
 		{
 			std::cout<<" | "<<LV[i]->lstAngebote[j].EP;
 		}
 		std::cout<<"\n";
+	}
+	return;
+}
+
+void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
+{
+	stack stapel;
+	double median, abweichung;
+	Angebot aktAng;
+	
+	for(std::vector<Position*>::iterator it = LV.begin(); it != LV.end(); it++)
+	{
+		for(int i = 0; i < (*it)->anzAngebote; i++)
+		{
+			stapel.push((*it)->lstAngebote[i].EP);
+		}
+		median = stapel.median();
+		if(median == 0)continue;
+		for(int i = 0; i < (*it)->anzAngebote; i++)
+		{
+			aktAng = (*it)->lstAngebote[i];
+			abweichung = 1-(aktAng.EP / median);
+			if(abs(abweichung) > 0.2)
+			{
+				aktAng.analyse += "hoher EP\n";
+			}
+		}
 	}
 	return;
 }

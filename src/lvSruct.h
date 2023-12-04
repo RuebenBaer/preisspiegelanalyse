@@ -20,7 +20,8 @@ typedef struct{
 	std::string langText;
 	float menge;
 	std::string einheit;
-	bool evtlPos, schwerPunkt;
+	bool evtlPos;
+	int risiko;
 	Angebot *lstAngebote;
 	int anzAngebote;
 }Position;
