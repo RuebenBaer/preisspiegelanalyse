@@ -9,9 +9,11 @@
 
 void einlesen(std::ifstream &file, std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
 void ErsteZeileLesen(std::string, std::vector<Bieter*>&);
-void auslesen(std::vector<Position*> &LV);
+void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
 void Aufraeumen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
 void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter);
+
+double ABWEICHUNG = 0.2, HOHE_ABWEICHUNG = 0.5, EXTREME_ABWEICHUNG = 1.0;
 
 void KommaGegenPunkt(std::string &str)
 {
@@ -60,9 +62,9 @@ int main(int argc, char** argv)
 	std::streampos fileAnfang = file.tellg();
 	
 	einlesen(file, LV, lstBieter);
-	auslesen(LV);
 	
 	LvAnalyse(LV, lstBieter);
+	auslesen(LV, lstBieter);
 	
 	file.close();
 	Aufraeumen(LV, lstBieter);
@@ -240,18 +242,17 @@ void Aufraeumen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 	return;
 }
 
-void auslesen(std::vector<Position*> &LV)
+void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 {
 	std::cout<<"Entered Auslesen\n";
-	for(long long unsigned int i = 0; i < LV.size(); i++)
+	for(long long unsigned int itB = 0; itB < lstBieter.size(); itB++)
 	{
-		std::cout<<LV[i]->posNr<<" | "<<LV[i]->kurzText<<" | "<<LV[i]->langText<<" | "<<LV[i]->evtlPos<<" | ";
-		std::cout<<LV[i]->menge<<" | "<<LV[i]->einheit<<" | "<<LV[i]->risiko;
-		for(int j = 0; j < LV[i]->anzAngebote; j++)
+		std::cout<<"Analyse "<<lstBieter[itB]->name<<":\n";
+		for(long long unsigned int i = 0; i < LV.size(); i++)
 		{
-			std::cout<<" | "<<LV[i]->lstAngebote[j].EP;
+			std::cout<<LV[i]->posNr<<":\t"<<LV[i]->lstAngebote[itB].EP<<" |\t"<<LV[i]->lstAngebote[itB].analyse;
+			std::cout<<"\n";
 		}
-		std::cout<<"\n";
 	}
 	return;
 }
@@ -260,7 +261,7 @@ void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 {
 	stack stapel;
 	double median, abweichung;
-	Angebot aktAng;
+	//Angebot aktAng;
 	
 	for(std::vector<Position*>::iterator it = LV.begin(); it != LV.end(); it++)
 	{
@@ -272,11 +273,57 @@ void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 		if(median == 0)continue;
 		for(int i = 0; i < (*it)->anzAngebote; i++)
 		{
-			aktAng = (*it)->lstAngebote[i];
-			abweichung = 1-(aktAng.EP / median);
-			if(abs(abweichung) > 0.2)
+			//aktAng = (*it)->lstAngebote[i];
+			std::cout<<"analyse "<<&(*it)->lstAngebote[i]<<"\n";
+			(*it)->lstAngebote[i].analyse = "analyse\n";
+			abweichung = 1-((*it)->lstAngebote[i].EP / median);
+			if(abs(abweichung) > EXTREME_ABWEICHUNG)
 			{
-				aktAng.analyse += "hoher EP\n";
+				(*it)->lstAngebote[i].analyse += "extrem ";
+				if(abweichung < 0)
+					(*it)->lstAngebote[i].analyse += "hoher EP\n";
+				else
+					(*it)->lstAngebote[i].analyse += "niedriger EP\n";
+			}
+			else if(abs(abweichung) > HOHE_ABWEICHUNG)
+			{
+				(*it)->lstAngebote[i].analyse += "sehr ";
+				if(abweichung < 0)
+					(*it)->lstAngebote[i].analyse += "hoher EP\n";
+				else
+					(*it)->lstAngebote[i].analyse += "niedriger EP\n";
+			}
+			else if(abs(abweichung) <= ABWEICHUNG)
+			{
+				continue;
+			}
+			
+			if(abweichung < 0)
+			{
+				(*it)->lstAngebote[i].analyse += "hoher EP\n";
+			}
+			else
+			{
+				(*it)->lstAngebote[i].analyse += "niedriger EP\n";
+			}
+			
+			if((*it)->evtlPos == true)
+			{
+				(*it)->lstAngebote[i].analyse += "Evtl.-Pos.: ";
+				switch((*it)->risiko)
+				{
+					case 0:
+						(*it)->lstAngebote[i].analyse += "moderates Kostenpotential\n";
+						break;
+					case 1:
+						(*it)->lstAngebote[i].analyse += "hohes Kostenpotential\n";
+						break;
+					case 2:
+						(*it)->lstAngebote[i].analyse += "sehr hohes Kostenpotential\n";
+						break;
+					default:
+						break;
+				}
 			}
 		}
 	}
