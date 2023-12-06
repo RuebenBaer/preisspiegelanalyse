@@ -1,0 +1,13 @@
+Analyse Haase:
+Position Nr.;Kurztext;Menge;Dim;EP geboten;Analyseergebnis
+02.0150;kurztext 2;6.90;Stk;16.00;77.4 %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+
+Analyse Problem:
+Position Nr.;Kurztext;Menge;Dim;EP geboten;Analyseergebnis
+01.0010;kurztext 1;15.57;m2;3.79;-23.4 %: niedriger EP
+
+Analyse Affe:
+Position Nr.;Kurztext;Menge;Dim;EP geboten;Analyseergebnis
+01.0010;kurztext 1;15.57;m2;18.00;263.6 %: extrem hoher EP
+02.0150;kurztext 2;6.90;Stk;0.02;-99.8 %: sehr niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+
