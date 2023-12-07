@@ -94,10 +94,10 @@ void Lese_langText(std::string str, Position &pos)
 
 void Lese_evtlPos(std::string str, Position &pos)
 {
-	if(str.empty())
-		pos.evtlPos = false;
-	else
-		pos.evtlPos = true;
+	if(str.empty())return;
+	char ersterBuchstabe = str.at(0);
+	std::cout<<ersterBuchstabe<<"\n";
+	pos.evtlPos = ersterBuchstabe;
 	return;
 }
 
@@ -251,7 +251,7 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 			ausgabe<<std::setw(16)<<"Position Nr."<<" | "<<std::setw(32)<<std::setiosflags(std::ios::left);
 			ausgabe<<"Kurztext"<<std::resetiosflags(std::ios::left)<<" | ";
 			ausgabe<<std::setw(10)<<"Menge"<<std::setw(5)<<"Dim"<<" | ";
-			ausgabe<<std::setw(10)<<"EP geboten"<<" | Analyseergebnis";
+			ausgabe<<std::setw(10)<<"EP geboten"<<" | "<<std::setw(10)<<"Median"<<" | Analyseergebnis";
 			ausgabe<<"\n";
 			for(long long unsigned int i = 0; i < LV.size(); i++)
 			{
@@ -261,19 +261,22 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 				sprintf(buffer, "%.2f", LV[i]->menge);
 				ausgabe<<std::setw(10)<<buffer<<std::setw(5)<<LV[i]->einheit<<" | ";
 				sprintf(buffer, "%.2f", LV[i]->lstAngebote[itB].EP);
+				ausgabe<<std::setw(10)<<buffer<<" | ";
+				sprintf(buffer, "%.2f", LV[i]->median);
 				ausgabe<<std::setw(10)<<buffer<<" | "<<LV[i]->lstAngebote[itB].analyse;
 				ausgabe<<"\n";
 			}
 			ausgabe<<"\n";
 		}
 	}
-	ausgabe.close();ausgabe.open("Analyse.csv", std::ios::out | std::ios::trunc);
+	ausgabe.close();
+	ausgabe.open("Analyse.csv", std::ios::out | std::ios::trunc);
 	if(ausgabe.good())
 	{
 		for(long long unsigned int itB = 0; itB < lstBieter.size(); itB++)
 		{
 			ausgabe<<"Analyse "<<lstBieter[itB]->name<<":\n";
-			ausgabe<<"Position Nr.;Kurztext;Menge;Dim;EP geboten;Analyseergebnis\n";
+			ausgabe<<"Position Nr.;Kurztext;Menge;Dim;EP geboten;Median;Analyseergebnis\n";
 			for(long long unsigned int i = 0; i < LV.size(); i++)
 			{
 				if(LV[i]->lstAngebote[itB].analyse.empty())continue;
@@ -281,6 +284,8 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 				sprintf(buffer, "%.2f", LV[i]->menge);
 				ausgabe<<buffer<<";"<<LV[i]->einheit<<";";
 				sprintf(buffer, "%.2f", LV[i]->lstAngebote[itB].EP);
+				ausgabe<<buffer<<";";
+				sprintf(buffer, "%.2f", LV[i]->median);
 				ausgabe<<buffer<<";"<<LV[i]->lstAngebote[itB].analyse;
 				ausgabe<<"\n";
 			}
@@ -294,7 +299,7 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 		std::cout<<std::setw(16)<<"Position Nr."<<" | "<<std::setw(32)<<std::setiosflags(std::ios::left);
 		std::cout<<"Kurztext"<<std::resetiosflags(std::ios::left)<<" | ";
 		std::cout<<std::setw(10)<<"Menge"<<std::setw(5)<<"Dim"<<" | ";
-		std::cout<<std::setw(10)<<"EP geboten"<<" | Analyseergebnis";
+		std::cout<<std::setw(10)<<"EP geboten"<<" | "<<std::setw(10)<<"Median"<<" | Analyseergebnis";
 		std::cout<<"\n";
 		for(long long unsigned int i = 0; i < LV.size(); i++)
 		{
@@ -304,6 +309,8 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 			sprintf(buffer, "%.2f", LV[i]->menge);
 			std::cout<<std::setw(10)<<buffer<<std::setw(5)<<LV[i]->einheit<<" | ";
 			sprintf(buffer, "%.2f", LV[i]->lstAngebote[itB].EP);
+			std::cout<<std::setw(10)<<buffer<<" | ";
+			sprintf(buffer, "%.2f", LV[i]->median);
 			std::cout<<std::setw(10)<<buffer<<" | "<<LV[i]->lstAngebote[itB].analyse;
 			std::cout<<"\n";
 		}
@@ -326,6 +333,7 @@ void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 		}
 		median = stapel.median();
 		if(median == 0)continue;
+		(*it)->median = median;
 		for(int i = 0; i < (*it)->anzAngebote; i++)
 		{
 			abweichung = ((*it)->lstAngebote[i].EP / median)-1;
@@ -358,9 +366,12 @@ void LvAnalyse(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 				(*it)->lstAngebote[i].analyse += "niedriger EP";
 			}
 
-			if((*it)->evtlPos == true)
+			if(((*it)->evtlPos == 'E') || ((*it)->evtlPos == 'P'))
 			{
-				(*it)->lstAngebote[i].analyse += ", Evtl.-Pos.: ";
+				if((*it)->evtlPos == 'E')
+					(*it)->lstAngebote[i].analyse += ", Evtl.-Pos.: ";
+				else
+					(*it)->lstAngebote[i].analyse += ", Preisabfrage: ";
 				switch((*it)->risiko)
 				{
 					case 0:

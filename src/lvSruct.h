@@ -20,10 +20,11 @@ typedef struct{
 	std::string langText;
 	float menge;
 	std::string einheit;
-	bool evtlPos;
+	int evtlPos;
 	int risiko;
 	Angebot *lstAngebote;
 	int anzAngebote;
+	double median;
 }Position;
 
 #endif //__LV_H_
