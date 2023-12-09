@@ -1,13 +1,13 @@
 Analyse Haase:
-    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis
-         02.0150 | kurztext 2                       |       6.90  Stk |      16.00 |       9.02 | 77.4 %: sehr hoher EP, Preisabfrage: moderates Kostenpotential
+    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis | h |   | s | e | E | m | h | s
+         02.0150 | kurztext 2                       |       6.90  Stk |      16.00 |       9.02 | 77.4 %: sehr hoher EP, Preisabfrage: moderates Kostenpotential | 1 | 0 | 1 | 0 | 1 | 1 | 0 | 0
 
 Analyse Problem:
-    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis
-         01.0010 | kurztext 1                       |      15.57   m2 |       3.79 |       4.95 | -23.4 %: niedriger EP, Preisabfrage: sehr hohes Kostenpotential
+    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis | h |   | s | e | E | m | h | s
+         01.0010 | kurztext 1                       |      15.57   m2 |       3.79 |       4.95 | -23.4 %: niedriger EP, Preisabfrage: sehr hohes Kostenpotential | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 1
 
 Analyse Affe:
-    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis
-         01.0010 | kurztext 1                       |      15.57   m2 |      18.00 |       4.95 | 263.6 %: extrem hoher EP, Preisabfrage: sehr hohes Kostenpotential
-         02.0150 | kurztext 2                       |       6.90  Stk |       0.02 |       9.02 | -99.8 %: sehr niedriger EP, Preisabfrage: moderates Kostenpotential
+    Position Nr. | Kurztext                         |      Menge  Dim | EP geboten |     Median | Analyseergebnis | h |   | s | e | E | m | h | s
+         01.0010 | kurztext 1                       |      15.57   m2 |      18.00 |       4.95 | 263.6 %: extrem hoher EP, Preisabfrage: sehr hohes Kostenpotential | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1
+         02.0150 | kurztext 2                       |       6.90  Stk |       0.02 |       9.02 | -99.8 %: sehr niedriger EP, Preisabfrage: moderates Kostenpotential | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 0
 
