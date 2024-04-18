@@ -1,0 +1,2 @@
+psa --help
+PAUSE

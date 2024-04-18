@@ -1,0 +1,187 @@
+Analyse Baumgärtner GmbH:
+      01.__.0010 | Klemmfilz D = 220 mm             |      20.00   m2 | -44.2: %: niedriger EP
+      02.__.0060 | OWAcoustic-System S 3 - Dessin   |       5.00   m2 | -71.1: %: sehr niedriger EP
+      02.__.0070 | OWA-Platten Sternbild Kante 6    |       6.00   m2 | -48.3: %: niedriger EP
+      02.__.0080 | OWA-Platten Schlicht Sanitas 02  |      10.00   m2 | -23.1: %: niedriger EP
+      02.__.0100 | ZULAGE für Aussparungen          |       5.00   St | -26.5: %: niedriger EP
+      02.__.0120 | Reservepaket OWAcoustic Platten  |      30.00   St | -29.1: %: niedriger EP
+      02.__.0130 | Owascoustic-System S 3 - Dessin  |      35.00   m2 | 24.6: %: hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0150 | Reservepaket OWAcoustic Platten  |      12.00   St | -71.6: %: sehr niedriger EP
+      03.__.0040 | Wandöffnung, 1,60 x 2,135        |      10.00   St | -80.8: %: sehr niedriger EP
+      03.__.0050 | Türöffnung, 1,60 x 2,26          |      10.00   St | -86.7: %: sehr niedriger EP
+      03.__.0060 | Zulage Einbau Türzarge           |     100.00   St | 100.0: %: sehr hoher EP
+      03.__.0070 | Anschluss an Massivwände         |      10.00    m | 108.3: %: extrem hoher EP
+      03.__.0080 | Freies Wandende                  |      10.00    m | -49.0: %: niedriger EP
+      03.__.0150 | Zulage Feuchtraumplatten         |       7.00   m2 | 84.2: %: sehr hoher EP
+      03.__.0160 | Verstärkte Profile UA            |       5.00    m | -57.3: %: sehr niedriger EP
+      03.__.0170 | Verstärkungsplatten              |      25.00   St | -30.6: %: niedriger EP
+      03.__.0210 | Zulage Mineralwolleinlage        |      20.00   m2 | 124.7: %: extrem hoher EP
+      04.__.0050 | Umfassung und Anschluss an Stüt  |      25.00   St | 38.9: %: hoher EP
+      04.__.0060 | Paneelleuchten einbauen          |      10.00   St | -60.0: %: sehr niedriger EP
+      04.__.0080 | Auswechslung Betonstütze Vordac  |     100.00   St | 270.4: %: extrem hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      04.__.0090 | Auswechslung Betonstütze Außenw  |     100.00   St | 270.4: %: extrem hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      05.__.0070 | Revisionsklappe 600x600 - F30    |     300.00   St | 21.8: %: hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      07.__.0030 | Helferstunden                    |      59.00    h | 20.4: %: hoher EP
+      07.__.0040 | ZULAGE Facharbeiter-Überstunde   |       0.00    h | -100.0: %: sehr niedriger EP
+      07.__.0050 | ZULAGE Vorarbeiter Überstunde    |       0.00    h | -100.0: %: sehr niedriger EP
+      07.__.0130 | Alu-Paneele                      |      25.00    m | 67.8: %: sehr hoher EP
+      07.__.0160 | CW-Profil 75 mm                  |       2.50    m | -26.5: %: niedriger EP
+      07.__.0170 | OWA-Platten Sternbild 1 ( S3 )   |       6.00   m2 | -34.8: %: niedriger EP
+      07.__.0180 | OWA-Platten Sternbild 2 ( S3 a)  |       6.00   m2 | -42.9: %: niedriger EP
+      07.__.0210 | Quersprossen 1250 mm             |       1.00   St | -51.5: %: sehr niedriger EP
+      07.__.0220 | Nonius-Abhänger                  |       1.00   St | -72.2: %: sehr niedriger EP
+      07.__.0250 | Sigrallband                      |       1.00   St | -91.5: %: sehr niedriger EP
+      07.__.0260 | Randwinkel 20 x 25               |       0.75    m | -68.1: %: sehr niedriger EP
+      07.__.0270 | Randwinkel 25 x 50               |       1.00    m | -75.0: %: sehr niedriger EP
+      07.__.0280 | UA-Profil                        |       4.50    m | -33.8: %: niedriger EP
+      08.__.0030 | Alu-Paneele Modul 100 mit Feder  |      25.00    m | 187.4: %: extrem hoher EP
+      08.__.0040 | Alu-Paneele Modul 100 ohne Fede  |      25.00    m | 187.4: %: extrem hoher EP
+      08.__.0050 | Alu-Paneele Modul 150 ohne Fede  |      25.00    m | 171.7: %: extrem hoher EP
+      08.__.0060 | Alu-Paneele Modul 150 mit Feder  |      25.00    m | 171.7: %: extrem hoher EP
+      08.__.0100 | Dämmwolle 80 mm                  |       4.50   m2 | -33.8: %: niedriger EP
+      08.__.0130 | Entsorgung Bauschutt             |      75.00   m3 | -31.8: %: niedriger EP
+      08.__.0200 | Nonius-Abhänger                  |       1.50   St | -58.3: %: sehr niedriger EP
+      08.__.0220 | OWA-Platten pura Schlicht        |       7.00   m2 | -54.2: %: sehr niedriger EP
+      08.__.0230 | OWA-Platten Sternbild 1 (S3)     |       6.00   m2 | -34.8: %: niedriger EP
+      08.__.0250 | OWA-Platten Sternbild 2 (S3a)    |       6.00   m2 | -42.9: %: niedriger EP
+      08.__.0260 | Paneelverbinder Modul 100        |       1.50   St | -26.8: %: niedriger EP
+      08.__.0270 | Paneelverbinder Modul 150        |       1.50   St | -30.6: %: niedriger EP
+      08.__.0290 | Promat                           |       4.00   m2 | -94.4: %: sehr niedriger EP
+      08.__.0300 | PVC-Profil                       |       1.00    m | -51.2: %: sehr niedriger EP
+      08.__.0310 | Quersprossen 1250 mm             |       1.00   St | -51.5: %: sehr niedriger EP
+      08.__.0320 | Quersprossen 625 mm              |       1.00   St | -48.7: %: niedriger EP
+      08.__.0330 | Rahmenschenkel / Kanthölzer 6x8  |      20.00    m | 129.9: %: extrem hoher EP
+      08.__.0340 | Randwinkel 20 x 25 mm            |       0.75    m | -68.1: %: sehr niedriger EP
+      08.__.0350 | Randwinkel 20 x 50 mm            |       1.00    m | -75.0: %: sehr niedriger EP
+      08.__.0360 | Rasterklammern / Druckfedern     |       1.00   St | 150.0: %: extrem hoher EP
+      08.__.0390 | Schnellbauschrauben 35 mm, 100   |      15.00   St | 75.4: %: sehr hoher EP
+      08.__.0410 | Stufenwandwinkel                 |       2.00    m | -37.5: %: niedriger EP
+      08.__.0420 | UA-Profil                        |       4.50    m | -33.8: %: niedriger EP
+      08.__.0490 | Alu-Eckschutz 25/25              |       1.00    m | -41.2: %: niedriger EP
+      08.__.0500 | Trennwandplatte TW1, 40 mm, Sup  |      25.00   m2 | 395.0: %: extrem hoher EP
+      08.__.0510 | Lichtraster ALC                  |       4.00   St | -72.4: %: sehr niedriger EP
+
+Analyse Buma Betriebs-GmbH:
+      01.__.0030 | Raum über OK Fertigteiltrennwan  |       5.70    m | -62.0: %: sehr niedriger EP
+      02.__.0030 | Demontage OWA Decke              |       6.50   m2 | -35.0: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0050 | Zulage gleitender Wandanschluß   |       2.70    m | -46.0: %: niedriger EP
+      02.__.0090 | Verstärkungsplatten OWAcoustic-  |       9.50   St | -36.7: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0110 | ZULAGE Passplatten               |       1.95   St | -61.0: %: sehr niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0140 | ZULAGE Decke, erhöhte Abhängung  |       3.90   m2 | 95.0: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0160 | Durchbruch mit PROMATECT F 90-A  |      77.50   St | -22.5: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0170 | Wandschlitz mit PROMATECT F 90-  |     155.00   St | 55.0: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0180 | Aussparung schließen             |      48.00   St | -52.0: %: sehr niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0190 | Abschlußwinkel weiß 50/30/3 ent  |      10.20    m | -59.2: %: sehr niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0200 | OWA-Platten tauschen             |       7.45   St | -25.5: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      03.__.0020 | Zulage Oberfläche Q3             |       4.50   m2 | -40.0: %: niedriger EP
+      03.__.0040 | Wandöffnung, 1,60 x 2,135        |      75.00   St | 44.2: %: hoher EP
+      03.__.0070 | Anschluss an Massivwände         |       2.90    m | -39.6: %: niedriger EP
+      03.__.0090 | Eckausbildung                    |      19.90   St | 68.6: %: sehr hoher EP
+      03.__.0150 | Zulage Feuchtraumplatten         |       3.00   m2 | -21.1: %: niedriger EP
+      03.__.0160 | Verstärkte Profile UA            |      17.30    m | 47.9: %: hoher EP
+      03.__.0170 | Verstärkungsplatten              |      43.35   St | 20.4: %: hoher EP
+      03.__.0190 | Staubschutzwand                  |      56.80   m2 | 20.9: %: hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      04.__.0030 | Lochblechwinkel 30/50 mm         |       6.90    m | -63.1: %: sehr niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      04.__.0070 | Aussenluftansauggitter einbauen  |      14.50   St | -71.0: %: sehr niedriger EP
+      04.__.0080 | Auswechslung Betonstütze Vordac  |      19.50   St | -27.8: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      04.__.0090 | Auswechslung Betonstütze Außenw  |      14.50   St | -46.3: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      05.__.0010 | Decke F30 allein von unten - fr  |      94.50   m2 | 26.0: %: hoher EP
+      05.__.0030 | Wandanschluss F30 gleitend       |       1.75    m | -65.0: %: sehr niedriger EP
+      05.__.0040 | Decke F90 allein von unten, fre  |     106.80   m2 | 25.6: %: hoher EP
+      06.__.0030 | Anfahrpauschale 1 AK / Trsp.     |      40.00 paus | -46.7: %: niedriger EP
+      06.__.0040 | Fahrtkosten pro 1 km             |       1.00   km | -33.3: %: niedriger EP
+      07.__.0030 | Helferstunden                    |      30.00    h | -38.8: %: niedriger EP
+      07.__.0080 | Fahrtkostenanteil                |       1.00   km | -33.3: %: niedriger EP
+      07.__.0120 | Alu-Tragschienen f. Paneele      |       7.65    m | 50.0: %: sehr hoher EP
+      07.__.0130 | Alu-Paneele                      |       9.20    m | -38.3: %: niedriger EP
+      07.__.0150 | Dachlatten                       |       0.85    m | -66.0: %: sehr niedriger EP
+      07.__.0200 | Hauptträger 3750 mm              |       8.15   St | 63.0: %: sehr hoher EP
+      07.__.0210 | Quersprossen 1250 mm             |       3.10   St | 50.5: %: sehr hoher EP
+      07.__.0250 | Sigrallband                      |      27.30   St | 131.4: %: extrem hoher EP
+      07.__.0280 | UA-Profil                        |      11.55    m | 69.9: %: sehr hoher EP
+      08.__.0080 | Alu-Tragschiene für Paneele      |       7.65    m | 50.0: %: sehr hoher EP
+      08.__.0090 | Dachlatte                        |       0.85    m | -66.0: %: sehr niedriger EP
+      08.__.0110 | Drahtabhänger                    |       2.65   St | 152.4: %: extrem hoher EP
+      08.__.0140 | Entsorgung Sondermüll/Glaswolle  |     145.00   m3 | -57.4: %: sehr niedriger EP
+      08.__.0160 | Hauptträger / Tragschienen 3750  |       8.15   St | 63.0: %: sehr hoher EP
+      08.__.0260 | Paneelverbinder Modul 100        |       3.20   St | 56.1: %: sehr hoher EP
+      08.__.0270 | Paneelverbinder Modul 150        |       4.20   St | 94.4: %: sehr hoher EP
+      08.__.0300 | PVC-Profil                       |       2.65    m | 29.3: %: hoher EP
+      08.__.0310 | Quersprossen 1250 mm             |       3.10   St | 50.5: %: sehr hoher EP
+      08.__.0330 | Rahmenschenkel / Kanthölzer 6x8  |       2.55    m | -70.7: %: sehr niedriger EP
+      08.__.0400 | Sigralband                       |      27.30   St | 131.4: %: extrem hoher EP
+      08.__.0420 | UA-Profil                        |      11.55    m | 69.9: %: sehr hoher EP
+      08.__.0430 | Uniflott                         |       5.45   kg | 172.5: %: extrem hoher EP
+      08.__.0450 | Zulage Nachtarbeitsstunden von   |      20.50  Std | -30.5: %: niedriger EP
+      08.__.0460 | Zulage Nachtarbeitsstunden von   |      19.50  Std | -33.9: %: niedriger EP
+      08.__.0470 | Dämmwolle 180 mm                 |      10.50   m2 | -30.0: %: niedriger EP
+      08.__.0500 | Trennwandplatte TW1, 40 mm, Sup  |       2.45   m2 | -51.5: %: sehr niedriger EP
+
+Analyse Dolenc GmbH:
+      01.__.0020 | Ersatzrollen D = 220 mm          |     118.00   St | 97.8: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      01.__.0030 | Raum über OK Fertigteiltrennwan  |      38.00    m | 153.3: %: extrem hoher EP
+      02.__.0030 | Demontage OWA Decke              |      50.30   m2 | 403.0: %: extrem hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0050 | Zulage gleitender Wandanschluß   |      12.00    m | 140.0: %: extrem hoher EP
+      02.__.0060 | OWAcoustic-System S 3 - Dessin   |      34.90   m2 | 101.7: %: extrem hoher EP
+      02.__.0070 | OWA-Platten Sternbild Kante 6    |      14.00   m2 | 20.7: %: hoher EP
+      02.__.0090 | Verstärkungsplatten OWAcoustic-  |      23.40   St | 56.0: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0100 | ZULAGE für Aussparungen          |      28.00   St | 311.8: %: extrem hoher EP
+      02.__.0110 | ZULAGE Passplatten               |      18.00   St | 260.0: %: extrem hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0140 | ZULAGE Decke, erhöhte Abhängung  |       1.05   m2 | -47.5: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0160 | Durchbruch mit PROMATECT F 90-A  |     180.00   St | 80.0: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0180 | Aussparung schließen             |     163.00   St | 63.0: %: sehr hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      02.__.0190 | Abschlußwinkel weiß 50/30/3 ent  |      69.00    m | 176.0: %: extrem hoher EP, Evtl.-Pos.: moderates Kostenpotential
+      03.__.0020 | Zulage Oberfläche Q3             |       9.70   m2 | 29.3: %: hoher EP
+      03.__.0050 | Türöffnung, 1,60 x 2,26          |      97.00   St | 29.3: %: hoher EP
+      03.__.0100 | T-Verbindung /Wandanbindung      |      19.00   St | 90.0: %: sehr hoher EP
+      03.__.0180 | Dauerelastische Verfugung, Acry  |       2.80    m | 27.3: %: hoher EP
+      03.__.0200 | Zulage Türöffnung                |     163.00   St | 226.0: %: extrem hoher EP
+      04.__.0020 | Randwinkel 25/35 mm              |      13.20    m | 111.2: %: extrem hoher EP
+      04.__.0060 | Paneelleuchten einbauen          |      56.00   St | 124.0: %: extrem hoher EP
+      04.__.0070 | Aussenluftansauggitter einbauen  |      79.00   St | 58.0: %: sehr hoher EP
+      05.__.0010 | Decke F30 allein von unten - fr  |      50.30   m2 | -32.9: %: niedriger EP
+      05.__.0020 | Decke F30 allein von unten und   |      63.90   m2 | -36.1: %: niedriger EP
+      05.__.0030 | Wandanschluss F30 gleitend       |      13.00    m | 160.0: %: extrem hoher EP
+      05.__.0070 | Revisionsklappe 600x600 - F30    |     189.00   St | -23.3: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      05.__.0080 | Revisionsklappe 40x60 - F90      |     183.00   St | -39.0: %: niedriger EP, Evtl.-Pos.: moderates Kostenpotential
+      06.__.0010 | Anfahrpauschale 4 AK / LKW / Tr  |     325.00 paus | 306.2: %: extrem hoher EP
+      06.__.0020 | Anfahrpauschale 2 AK / Trsp.     |     176.00 paus | 134.7: %: extrem hoher EP
+      06.__.0040 | Fahrtkosten pro 1 km             |       3.60   km | 140.0: %: extrem hoher EP
+      07.__.0050 | ZULAGE Vorarbeiter Überstunde    |      15.00    h | 23.0: %: hoher EP
+      07.__.0080 | Fahrtkostenanteil                |       3.60   km | 140.0: %: extrem hoher EP
+      07.__.0090 | Brandschutzschaum                |      39.60   St | 98.0: %: sehr hoher EP
+      07.__.0100 | Acryl                            |       2.70   St | -40.0: %: niedriger EP
+      07.__.0150 | Dachlatten                       |       3.60    m | 44.0: %: hoher EP
+      07.__.0170 | OWA-Platten Sternbild 1 ( S3 )   |      13.10   m2 | 42.4: %: hoher EP
+      07.__.0180 | OWA-Platten Sternbild 2 ( S3 a)  |      17.10   m2 | 62.9: %: sehr hoher EP
+      07.__.0190 | OWA-Platten Harmony / Jura       |      13.90   m2 | 39.0: %: hoher EP
+      07.__.0200 | Hauptträger 3750 mm              |       2.06   St | -58.8: %: sehr niedriger EP
+      07.__.0230 | PE-Folie                         |       0.96   m2 | -48.1: %: niedriger EP
+      07.__.0260 | Randwinkel 20 x 25               |       4.90    m | 108.5: %: extrem hoher EP
+      07.__.0270 | Randwinkel 25 x 50               |       5.40    m | 35.0: %: hoher EP
+      07.__.0290 | UW-Profil                        |       2.45    m | -30.0: %: niedriger EP
+      08.__.0010 | Acryl                            |       1.35   St | -70.0: %: sehr niedriger EP
+      08.__.0030 | Alu-Paneele Modul 100 mit Feder  |       4.90    m | -43.7: %: niedriger EP
+      08.__.0040 | Alu-Paneele Modul 100 ohne Fede  |       4.05    m | -53.4: %: sehr niedriger EP
+      08.__.0090 | Dachlatte                        |       3.60    m | 44.0: %: hoher EP
+      08.__.0160 | Hauptträger / Tragschienen 3750  |       2.06   St | -58.8: %: sehr niedriger EP
+      08.__.0170 | ISOVER Vario Dichtstoff          |       2.40   St | -70.0: %: sehr niedriger EP
+      08.__.0180 | Klemmfilz 160 mm                 |      18.30   m2 | 52.5: %: sehr hoher EP
+      08.__.0190 | Klemmfilz 220 mm                 |      25.80   m2 | 43.3: %: hoher EP
+      08.__.0210 | OWA-Platten Harmony/Jura         |      13.90   m2 | 39.0: %: hoher EP
+      08.__.0230 | OWA-Platten Sternbild 1 (S3)     |      13.10   m2 | 42.4: %: hoher EP
+      08.__.0240 | OWA-Platten Sternbild 2 (S2a) L  |      17.10   m2 | 33.1: %: hoher EP
+      08.__.0250 | OWA-Platten Sternbild 2 (S3a)    |      17.10   m2 | 62.9: %: sehr hoher EP
+      08.__.0280 | PE-/Dampfbremsfolie              |       9.60   m2 | 380.0: %: extrem hoher EP
+      08.__.0290 | Promat                           |      86.00   m2 | 21.3: %: hoher EP
+      08.__.0340 | Randwinkel 20 x 25 mm            |       4.90    m | 108.5: %: extrem hoher EP
+      08.__.0350 | Randwinkel 20 x 50 mm            |       5.40    m | 35.0: %: hoher EP
+      08.__.0360 | Rasterklammern / Druckfedern     |       0.20   St | -50.0: %: niedriger EP
+      08.__.0390 | Schnellbauschrauben 35 mm, 100   |       1.15   St | -86.5: %: sehr niedriger EP
+      08.__.0410 | Stufenwandwinkel                 |       7.90    m | 146.9: %: extrem hoher EP
+      08.__.0430 | Uniflott                         |       1.56   kg | -22.0: %: niedriger EP
+      08.__.0470 | Dämmwolle 180 mm                 |      19.60   m2 | 30.7: %: hoher EP
+      08.__.0480 | Dämmwolle 160 mm                 |      18.30   m2 | 52.5: %: sehr hoher EP
+      08.__.0510 | Lichtraster ALC                  |      27.00   St | 86.2: %: sehr hoher EP
+
+Aufraeumen beendet

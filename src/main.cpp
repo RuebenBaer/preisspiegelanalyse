@@ -30,7 +30,8 @@ void printHelp()
 {
 	std::cout<<"Erforderliche Reihenfolge der Einträge:\n";
 	std::cout<<"PositionNr. | Kurztext | Langtext | mitGP | Menge | Einheit | Kostenrisiko | Bieter 1 | Bieter 2 | Bieter 3 | usw.\n\n";
-	std::cout<<"In der ersten Zeile der Datei sind die Namen der Bieter zu hinterlegen\n\n";
+	std::cout<<"In der ersten Zeile der Datei sind die Namen der Bieter zu hinterlegen\n";
+	std::cout<<"Kostenrisiko = [0, 1, 2]\n\n";
 	return;
 }
 
@@ -284,7 +285,7 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 		for(long long unsigned int itB = 0; itB < lstBieter.size(); itB++)
 		{
 			ausgabe<<"Analyse "<<lstBieter[itB]->name<<":\n";
-			ausgabe<<"Position Nr.;Kurztext;Menge;Dim;EP geboten;Median;Analyseergebnis;hoch\\niedrig;normal;sehr;extrem;Kostenpotential;moderat;hoch;sehr hoch\n";
+			ausgabe<<"Position Nr.;Kurztext;Menge;Dim;EP geboten;Median;;Analyseergebnis;hoch\\niedrig;normal;sehr;extrem;Kostenpotential;moderat;hoch;sehr hoch\n";
 			for(long long unsigned int i = 0; i < LV.size(); i++)
 			{
 				if(LV[i]->lstAngebote[itB].analyse.empty())continue;
@@ -294,7 +295,7 @@ void auslesen(std::vector<Position*> &LV, std::vector<Bieter*> &lstBieter)
 				sprintf(buffer, "%.2f", LV[i]->lstAngebote[itB].EP);
 				ausgabe<<buffer<<";";
 				sprintf(buffer, "%.2f", LV[i]->median);
-				ausgabe<<buffer<<";"<<LV[i]->lstAngebote[itB].analyse;
+				ausgabe<<buffer<<";;"<<LV[i]->lstAngebote[itB].analyse;
 				ausgabe<<";"<<((LV[i]->lstAngebote[itB].cAnalyse&0b00000001) == 0b00000001);
 				ausgabe<<";"<<((LV[i]->lstAngebote[itB].cAnalyse&0b00000010) == 0b00000010);
 				ausgabe<<";"<<((LV[i]->lstAngebote[itB].cAnalyse&0b00000100) == 0b00000100);
